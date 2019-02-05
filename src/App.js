@@ -5,7 +5,9 @@ class App extends Component {
     super(props);
     this.state = {
       message: "",
-      devices: []
+      devices: [],
+      height: "70%",
+      width: "70%"
     };
   }
   componentDidMount = () => {
@@ -55,8 +57,14 @@ class App extends Component {
   render() {
     return (
       <div className="photo">
-        <video id="video" width="568" height="450" />
-        <canvas id="canvas" width="568" height="426" />
+        <video id="video" width={this.state.width} height={this.state.height} />
+        <canvas
+          id="canvas"
+          width={this.state.width}
+          height={this.state.height}
+        />
+        {/* <video id="video" width="568" height="450" /> */}
+        {/* <canvas id="canvas" width="568" height="426" /> */}
       </div>
     );
   }
