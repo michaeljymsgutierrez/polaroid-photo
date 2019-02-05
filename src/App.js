@@ -4,7 +4,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ""
+      message: "",
+      devices: []
     };
   }
   componentDidMount = () => {
@@ -15,8 +16,13 @@ class App extends Component {
     navigator.mediaDevices
       .enumerateDevices()
       .then(success => {
-        this.setState({ message: JSON.stringify(success) });
-        console.log(success);
+        let DEVICES = [];
+        success.forEach(value => {
+          if (value.kind === "videoinput") {
+            DEVICES.push(value);
+          }
+        });
+        this.setState({ devices: DEVICES });
       })
       .catch(err => {
         console.log(err);
@@ -43,7 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="photo">
-        {this.state.message}
+        {JSON.stringify(this.state.devices)}
         <video id="video" width="568" height="450" />
         <canvas id="canvas" width="568" height="426" />
       </div>
