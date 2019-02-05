@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       message: "",
       devices: [],
-      height: "70%",
-      width: "70%"
+      height: "100%",
+      width: "100%"
     };
   }
   componentDidMount = () => {
@@ -56,13 +56,13 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="photo">
+      <div className="photo container">
         <video id="video" width={this.state.width} height={this.state.height} />
-        <canvas
+        {/* <canvas
           id="canvas"
           width={this.state.width}
           height={this.state.height}
-        />
+        /> */}
         {/* <video id="video" width="568" height="450" /> */}
         {/* <canvas id="canvas" width="568" height="426" /> */}
       </div>
