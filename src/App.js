@@ -37,7 +37,7 @@ class App extends Component {
       navigator.mediaDevices
         .getUserMedia({
           video: {
-            deviceId: { exact: this.state.devices[1] }
+            deviceId: { exact: this.state.devices[0] }
           }
         })
         .then(
@@ -55,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <div className="photo">
-        {JSON.stringify(this.state.devices)}
+        {JSON.stringify(this.state.devices)}A
         <video id="video" width="568" height="450" />
         <canvas id="canvas" width="568" height="426" />
       </div>
