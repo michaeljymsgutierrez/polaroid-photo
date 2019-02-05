@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardText } from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
 import "./App.css";
 class App extends Component {
   constructor(props) {
@@ -88,6 +89,11 @@ class App extends Component {
             })()}
           </CardText>
         </Card>
+        <div className="actions">
+          <FlatButton primary={true} label="Capture" />
+          <FlatButton primary={true} label="Retake" />
+          <FlatButton primary={true} label="Switch Camera" />
+        </div>
       </div>
     );
   }
