@@ -73,7 +73,7 @@ class App extends Component {
                       height={this.state.height}
                     />
                   );
-                  break;
+
                 case false:
                   return (
                     <video
@@ -82,7 +82,8 @@ class App extends Component {
                       height={this.state.height}
                     />
                   );
-                  break;
+                default:
+                  console.log("Nothing here...");
               }
             })()}
           </CardText>
