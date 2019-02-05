@@ -12,6 +12,15 @@ class App extends Component {
      * Initialize Data
      */
     this.rollCamera();
+    navigator.mediaDevices
+      .enumerateDevices()
+      .then(success => {
+        this.setState({ message: JSON.stringify(success) });
+        console.log(success);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   rollCamera = () => {
     /**
@@ -21,12 +30,12 @@ class App extends Component {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(
         stream => {
-          this.setState({ message: JSON.stringify(stream.id) });
+          // this.setState({ message: JSON.stringify(stream.id) });
           video.srcObject = stream;
           video.play();
         },
         error => {
-          this.setState({ message: JSON.stringify(error) });
+          // this.setState({ message: JSON.stringify(error) });
         }
       );
     }
