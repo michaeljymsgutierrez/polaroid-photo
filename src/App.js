@@ -34,16 +34,22 @@ class App extends Component {
      */
     let video = document.getElementById("video");
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true }).then(
-        stream => {
-          // this.setState({ message: JSON.stringify(stream.id) });
-          video.srcObject = stream;
-          video.play();
-        },
-        error => {
-          // this.setState({ message: JSON.stringify(error) });
-        }
-      );
+      navigator.mediaDevices
+        .getUserMedia({
+          video: {
+            deviceId: { exact: this.state.devices[1] }
+          }
+        })
+        .then(
+          stream => {
+            // this.setState({ message: JSON.stringify(stream.id) });
+            video.srcObject = stream;
+            video.play();
+          },
+          error => {
+            // this.setState({ message: JSON.stringify(error) });
+          }
+        );
     }
   };
   render() {
