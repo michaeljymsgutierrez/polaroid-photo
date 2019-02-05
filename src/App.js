@@ -43,12 +43,11 @@ class App extends Component {
         })
         .then(
           stream => {
-            // this.setState({ message: JSON.stringify(stream.id) });
             video.srcObject = stream;
             video.play();
           },
           error => {
-            // this.setState({ message: JSON.stringify(error) });
+            console.log(error);
           }
         );
     }
@@ -56,7 +55,6 @@ class App extends Component {
   render() {
     return (
       <div className="photo">
-        {JSON.stringify(this.state.devices)}A
         <video id="video" width="568" height="450" />
         <canvas id="canvas" width="568" height="426" />
       </div>
