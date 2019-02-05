@@ -37,6 +37,7 @@ class App extends Component {
       navigator.mediaDevices
         .getUserMedia({
           video: {
+            facingMode: "environment",
             deviceId: { exact: this.state.devices[1] }
           }
         })
