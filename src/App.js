@@ -8,7 +8,8 @@ class App extends Component {
       message: "",
       devices: [],
       height: "100%",
-      width: "100%"
+      width: "100%",
+      is_captured: false
     };
   }
   componentDidMount = () => {
@@ -35,7 +36,6 @@ class App extends Component {
     /**
      *  Roll Camera Function
      */
-    let video = document.getElementById("video");
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices
         .getUserMedia({
@@ -46,8 +46,11 @@ class App extends Component {
         })
         .then(
           stream => {
-            video.srcObject = stream;
-            video.play();
+            if (this.state.is_captured === false) {
+              let video = document.getElementById("video");
+              video.srcObject = stream;
+              video.play();
+            }
           },
           error => {
             console.log(error);
@@ -60,12 +63,28 @@ class App extends Component {
       <div className="photo container">
         <Card>
           <CardText>
-            <video
-              id="video"
-              width={this.state.width}
-              height={this.state.height}
-            />
-            {/* <canvas id="canvas" width="568" height="426" /> */}
+            {(() => {
+              switch (this.state.is_captured) {
+                case true:
+                  return (
+                    <canvas
+                      id="canvas"
+                      width={this.state.width}
+                      height={this.state.height}
+                    />
+                  );
+                  break;
+                case false:
+                  return (
+                    <video
+                      id="video"
+                      width={this.state.width}
+                      height={this.state.height}
+                    />
+                  );
+                  break;
+              }
+            })()}
           </CardText>
         </Card>
       </div>
