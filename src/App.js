@@ -37,7 +37,7 @@ class App extends Component {
       navigator.mediaDevices
         .getUserMedia({
           video: {
-            deviceId: { exact: this.state.devices[0] }
+            deviceId: { exact: this.state.devices[1] }
           }
         })
         .then(
