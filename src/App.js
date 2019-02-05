@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Card, CardText } from "material-ui/Card";
 import "./App.css";
 class App extends Component {
   constructor(props) {
@@ -57,14 +58,16 @@ class App extends Component {
   render() {
     return (
       <div className="photo container">
-        <video id="video" width={this.state.width} height={this.state.height} />
-        {/* <canvas
-          id="canvas"
-          width={this.state.width}
-          height={this.state.height}
-        /> */}
-        {/* <video id="video" width="568" height="450" /> */}
-        {/* <canvas id="canvas" width="568" height="426" /> */}
+        <Card>
+          <CardText>
+            <video
+              id="video"
+              width={this.state.width}
+              height={this.state.height}
+            />
+            {/* <canvas id="canvas" width="568" height="426" /> */}
+          </CardText>
+        </Card>
       </div>
     );
   }
