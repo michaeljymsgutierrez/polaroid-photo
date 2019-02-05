@@ -21,7 +21,7 @@ class App extends Component {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(
         stream => {
-          this.setState({ message: JSON.stringify(stream) });
+          this.setState({ message: JSON.stringify(stream.id) });
           video.srcObject = stream;
           video.play();
         },
