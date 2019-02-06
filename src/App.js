@@ -59,41 +59,38 @@ class App extends Component {
         );
     }
   };
+  capturePhoto = () => {
+    this.setState({ is_captured: true });
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+    let video = document.getElementById("video");
+    context.drawImage(video, 0, 0, 568, 426);
+    // context.drawImage(video, 0, 0, this.state.width, this.state.height);
+  };
   render() {
     return (
       <div className="photo container">
-        <Card>
-          <CardText>
-            {(() => {
-              switch (this.state.is_captured) {
-                case true:
-                  return (
-                    <canvas
-                      id="canvas"
-                      width={this.state.width}
-                      height={this.state.height}
-                    />
-                  );
-
-                case false:
-                  return (
-                    <video
-                      id="video"
-                      width={this.state.width}
-                      height={this.state.height}
-                    />
-                  );
-                default:
-                  console.log("Nothing here...");
-              }
-            })()}
-          </CardText>
-        </Card>
+        <div className="polaroid">
+          <Card>
+            <CardText>
+              <video
+                id="video"
+                width={this.state.width}
+                height={this.state.height}
+              />
+            </CardText>
+          </Card>
+        </div>
         <div className="actions">
-          <FlatButton primary={true} label="Capture" />
+          <FlatButton
+            primary={true}
+            label="Capture"
+            onClick={this.capturePhoto}
+          />
           <FlatButton primary={true} label="Retake" />
           <FlatButton primary={true} label="Switch Camera" />
         </div>
+        <canvas id="canvas" height="400" width="595" />
       </div>
     );
   }
