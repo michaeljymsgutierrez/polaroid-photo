@@ -64,13 +64,13 @@ class App extends Component {
     let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d");
     let video = document.getElementById("video");
-    context.drawImage(video, 0, 0, 568, 426);
+    // context.drawImage(video, 0, 0, 568, 426);
     // context.drawImage(video, 0, 0, this.state.width, this.state.height);
   };
   render() {
     return (
       <div className="photo container">
-        <div className="polaroid">
+        <div id="polaroid">
           <Card>
             <CardText>
               <video
@@ -90,7 +90,7 @@ class App extends Component {
           <FlatButton primary={true} label="Retake" />
           <FlatButton primary={true} label="Switch Camera" />
         </div>
-        <canvas id="canvas" height="400" width="595" />
+        {/* <canvas id="canvas" height="400" width="595" /> */}
       </div>
     );
   }
