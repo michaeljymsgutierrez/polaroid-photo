@@ -60,10 +60,11 @@ class App extends Component {
     }
   };
   capturePhoto = () => {
-    this.setState({ is_captured: true });
-    let canvas = document.getElementById("canvas");
-    let context = canvas.getContext("2d");
-    let video = document.getElementById("video");
+    window.print();
+    // this.setState({ is_captured: true });
+    // let canvas = document.getElementById("canvas");
+    // let context = canvas.getContext("2d");
+    // let video = document.getElementById("video");
     // context.drawImage(video, 0, 0, 568, 426);
     // context.drawImage(video, 0, 0, this.state.width, this.state.height);
   };
@@ -87,8 +88,8 @@ class App extends Component {
             label="Capture"
             onClick={this.capturePhoto}
           />
-          <FlatButton primary={true} label="Retake" />
-          <FlatButton primary={true} label="Switch Camera" />
+          {/* <FlatButton primary={true} label="Retake" /> */}
+          {/* <FlatButton primary={true} label="Switch Camera" /> */}
         </div>
         {/* <canvas id="canvas" height="400" width="595" /> */}
       </div>

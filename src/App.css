@@ -13,3 +13,9 @@
 .actions {
   margin-top: 20px;
 }
+
+@media print {
+  .actions {
+    display: none;
+  }
+}
